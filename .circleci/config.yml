@@ -23,9 +23,12 @@ jobs:
       - run: gem install "bundler:${BUNDLER_VERSION}"
       - run: bundle install --path "${BUNDLE_PATH}"
       - run: bundle exec rspec
+      - run: bundle exec rdoc
 
       - store_artifacts:
-          path: coverage
+          path:
+          - coverage
+          - doc
 
       - save_cache:
           paths:

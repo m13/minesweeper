@@ -10,4 +10,6 @@ group :test do
   gem 'rspec'
   # CodeCoverage
   gem 'simplecov', require: false
+  # Documentation
+  gem 'rdoc', require: false
 end

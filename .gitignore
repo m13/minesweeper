@@ -3,3 +3,6 @@
 
 # GEM simplecov
 coverage/
+
+# GEM rdoc
+doc/
