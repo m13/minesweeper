@@ -1,3 +1,4 @@
+# typed: false
 # frozen_string_literal: true
 
 require "#{__dir__}/../src/minesweeper"

@@ -39,6 +39,10 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
+    sorbet (0.4.4485)
+      sorbet-static (= 0.4.4485)
+    sorbet-runtime (0.4.4485)
+    sorbet-static (0.4.4485-universal-darwin-14)
     unicode-display_width (1.6.0)
 
 PLATFORMS
@@ -50,6 +54,8 @@ DEPENDENCIES
   rubocop (~> 0.72.0)
   rubocop-performance
   simplecov
+  sorbet
+  sorbet-runtime
 
 RUBY VERSION
    ruby 2.6.3p62

@@ -25,6 +25,8 @@ jobs:
 
       - run: bundle exec rubocop
 
+      - run: bundle exec srb tc
+
       - run: bundle exec rspec
       - store_artifacts:
           path: coverage
