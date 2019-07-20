@@ -7,6 +7,10 @@ jobs:
 
     working_directory: ~/project
 
+    environment:
+      BUNDLE_PATH: ~/project/vendor/bundle
+      BUNDLER_VERSION: '2.0.2'
+
     steps:
       - checkout
 
@@ -16,13 +20,10 @@ jobs:
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-
             - v1-gem-cache-{{ arch }}-
 
-      - run:
-          name: install dependencies
-          command: |
-            gem update --system
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+      - run: gem install "bundler:${BUNDLER_VERSION}"
+      - run: bundle install --jobs=4 --retry=3 --path "${BUNDLE_PATH}"
 
       - save_cache:
           paths:
-            - ./vendor/bundle
+            - vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
