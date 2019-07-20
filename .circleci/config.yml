@@ -21,9 +21,10 @@ jobs:
             - v1-gem-cache-{{ arch }}-
 
       - run: gem install "bundler:${BUNDLER_VERSION}"
-      - run: bundle install --jobs=4 --retry=3 --path "${BUNDLE_PATH}"
+      - run: bundle install --path "${BUNDLE_PATH}"
+      - run: rspec
 
       - save_cache:
           paths:
-            - vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - "${BUNDLE_PATH}"
+          key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
