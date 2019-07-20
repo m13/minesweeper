@@ -27,7 +27,7 @@ jobs:
       - store_artifacts:
           path: coverage
 
-      - run: bundle exec rdoc
+      - run: bundle exec rdoc src/
       - store_artifacts:
           path: doc
 
