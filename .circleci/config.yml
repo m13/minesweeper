@@ -1,0 +1,39 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3
+
+    working_directory: ~/project
+
+    environment:
+      BUNDLE_PATH: ~/project/vendor/bundle
+      BUNDLER_VERSION: '2.0.2'
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+            - v1-gem-cache-{{ arch }}-
+
+      - run: gem install "bundler:${BUNDLER_VERSION}"
+      - run: bundle install --path "${BUNDLE_PATH}"
+
+      - run: bundle exec rubocop
+
+      - run: bundle exec rspec
+      - store_artifacts:
+          path: coverage
+
+      - run: bundle exec rdoc src/
+      - store_artifacts:
+          path: doc
+
+      - save_cache:
+          paths:
+            - "${BUNDLE_PATH}"
+          key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
