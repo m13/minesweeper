@@ -1,2 +1,5 @@
-# RubyMine
+# IDE RubyMine
 .idea/
+
+# GEM simplecov
+coverage/
