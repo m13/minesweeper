@@ -22,7 +22,7 @@ jobs:
 
       - run: gem install "bundler:${BUNDLER_VERSION}"
       - run: bundle install --path "${BUNDLE_PATH}"
-      - run: rspec
+      - run: bundle exec rspec
 
       - save_cache:
           paths:
