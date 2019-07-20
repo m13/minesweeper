@@ -24,6 +24,9 @@ jobs:
       - run: bundle install --path "${BUNDLE_PATH}"
       - run: bundle exec rspec
 
+      - store_artifacts:
+          path: coverage
+
       - save_cache:
           paths:
             - "${BUNDLE_PATH}"

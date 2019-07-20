@@ -6,5 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 group :test do
+  # BDD tests
   gem 'rspec'
+  # CodeCoverage
+  gem 'simplecov', require: false
 end
