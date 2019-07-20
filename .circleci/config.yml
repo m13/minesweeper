@@ -23,6 +23,8 @@ jobs:
       - run: gem install "bundler:${BUNDLER_VERSION}"
       - run: bundle install --path "${BUNDLE_PATH}"
 
+      - run: bundle exec rubocop
+
       - run: bundle exec rspec
       - store_artifacts:
           path: coverage

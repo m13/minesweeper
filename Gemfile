@@ -12,4 +12,7 @@ group :test do
   gem 'simplecov', require: false
   # Documentation
   gem 'rdoc', require: false
+  # Linter
+  gem 'rubocop', '~> 0.72.0', require: false
+  gem 'rubocop-performance'
 end
