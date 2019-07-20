@@ -22,13 +22,14 @@ jobs:
 
       - run: gem install "bundler:${BUNDLER_VERSION}"
       - run: bundle install --path "${BUNDLE_PATH}"
-      - run: bundle exec rspec
-      - run: bundle exec rdoc
 
+      - run: bundle exec rspec
       - store_artifacts:
-          path:
-          - coverage
-          - doc
+          path: coverage
+
+      - run: bundle exec rdoc
+      - store_artifacts:
+          path: doc
 
       - save_cache:
           paths:
