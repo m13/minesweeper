@@ -4,12 +4,22 @@
 require 'sorbet-runtime'
 require 'securerandom'
 
-# Model
+##
+# Model to manipulate board, specially with its bombs
+# There are 4 types:
+# - nil (out of boundary)
+# - X (hidden / not seen yet)
+# - B (bomb!) but displayed as X
+# - Number (once discovered contains the total of surrounding bombs)
+#
 class Board
   extend T::Sig
 
+  # array of array
   attr_accessor(:board)
-  attr_accessor(:missing) # bombs until game is finished
+
+  # bombs until game is finished
+  attr_accessor(:missing)
 
   DEFAULT = :X
   BOMB = :B
