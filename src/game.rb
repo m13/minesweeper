@@ -2,14 +2,19 @@
 # frozen_string_literal: true
 
 require 'sorbet-runtime'
-require 'securerandom'
 require './src/board'
 
-# Controller
+##
+# Controller to track status and total of bombs depending of its difficulty
+# Status can be ONGOING, WIN and LOST
+#
 class Game
   extend T::Sig
 
+  # model Board
   attr_accessor(:board)
+
+  # state machine
   attr_accessor(:status)
 
   ONGOING = :ongoing

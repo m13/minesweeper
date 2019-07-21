@@ -2,13 +2,14 @@
 # frozen_string_literal: true
 
 require 'sorbet-runtime'
-require 'securerandom'
 require './src/game'
 
-# Viewer
+##
+# Main class and Viewer that outputs depending status and exception received
 class Minesweeper
   extend T::Sig
 
+  # controller Game
   attr_accessor(:game)
 
   sig { params(size: Integer, difficulty: Symbol).returns(T.nilable(Game)) }
