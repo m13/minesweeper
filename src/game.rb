@@ -19,10 +19,10 @@ class Game
     hard: 0.5
   }.freeze
 
-  sig { params(size: Integer, difficulty: Symbol).void }
+  sig { params(size: Integer, difficulty: Symbol).returns(T.nilable(Board)) }
   def initialize(size, difficulty)
-    @board = Board.new(size, bomb_percentage(difficulty))
     @status = ONGOING
+    @board = Board.new(size, bomb_percentage(difficulty))
   end
 
   sig { params(pos_x: Integer, pos_y: Integer).returns(T.nilable(Integer)) }

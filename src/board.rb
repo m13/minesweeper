@@ -11,16 +11,16 @@ class Board
   DEFAULT = :X
   BOMB = :B
 
-  sig { params(size: Integer, bomb_percentage: Float).void }
+  sig { params(size: Integer, bomb_percentage: Float).returns(T.nilable(Integer)) }
   def initialize(size, bomb_percentage)
     raise SizeOutOfBoundariesError unless size.positive? && size <= 100
 
     @board = Array.new(size) { Array.new(size, DEFAULT) }
     square = size * size
     bombs = (square * bomb_percentage).ceil
-    @missing = square - bombs
 
     add_bombs(square, size, bombs)
+    @missing = square - bombs
   end
 
   sig { params(max: Integer, size: Integer, bombs: Integer).void }

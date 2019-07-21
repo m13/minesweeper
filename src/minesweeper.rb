@@ -9,7 +9,9 @@ require './src/game'
 class Minesweeper
   extend T::Sig
 
-  sig { params(size: Integer, difficulty: Symbol).void }
+  attr_accessor(:game)
+
+  sig { params(size: Integer, difficulty: Symbol).returns(T.nilable(Game)) }
   def initialize(size, difficulty)
     @game = Game.new(size, difficulty)
   rescue SizeOutOfBoundariesError
