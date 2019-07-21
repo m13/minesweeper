@@ -5,7 +5,6 @@ require './src/game'
 
 # rubocop:disable Metrics/BlockLength
 RSpec.describe Game do
-
   # skipped
   # context '#initialize'
 
@@ -85,6 +84,5 @@ RSpec.describe Game do
 
   # skipped
   # context '#bomb_percentage'
-
 end
 # rubocop:enable Metrics/BlockLength
