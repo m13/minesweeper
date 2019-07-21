@@ -8,6 +8,9 @@ require 'securerandom'
 class Board
   extend T::Sig
 
+  attr_accessor(:board)
+  attr_accessor(:missing) # bombs until game is finished
+
   DEFAULT = :X
   BOMB = :B
 
@@ -72,7 +75,7 @@ class Board
   end
 
   sig { returns(Array) }
-  def display
+  def filtered_board
     @board.collect do |column|
       column.collect do |row|
         row == BOMB ? DEFAULT : row.to_s

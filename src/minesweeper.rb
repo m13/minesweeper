@@ -46,7 +46,7 @@ class Minesweeper
 
   sig { void }
   def display
-    @game.board.each do |column|
+    @game.filtered_board.each do |column|
       puts column.join(' ')
     end
   end

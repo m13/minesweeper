@@ -9,6 +9,9 @@ require './src/board'
 class Game
   extend T::Sig
 
+  attr_accessor(:board)
+  attr_accessor(:status)
+
   ONGOING = :ongoing
   WIN = :win
   LOST = :lost
@@ -55,8 +58,8 @@ class Game
   end
 
   sig { returns(Array) }
-  def board
-    @board.display
+  def filtered_board
+    @board.filtered_board
   end
 
   private
