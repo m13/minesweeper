@@ -10,7 +10,7 @@ GEM
     parser (2.6.3.0)
       ast (~> 2.4.0)
     rainbow (3.0.0)
-    rdoc (6.1.1)
+    rdoc (6.3.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -43,6 +43,12 @@ GEM
       sorbet-static (= 0.4.4485)
     sorbet-runtime (0.4.4485)
     sorbet-static (0.4.4485-universal-darwin-14)
+    sorbet-static (0.4.4485-universal-darwin-15)
+    sorbet-static (0.4.4485-universal-darwin-16)
+    sorbet-static (0.4.4485-universal-darwin-17)
+    sorbet-static (0.4.4485-universal-darwin-18)
+    sorbet-static (0.4.4485-universal-darwin-19)
+    sorbet-static (0.4.4485-x86_64-linux)
     unicode-display_width (1.6.0)
 
 PLATFORMS
